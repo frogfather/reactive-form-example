@@ -14,7 +14,7 @@ export class AppComponent {
   }
 
   _addGroup() {
-    this._groupsFormArray.push(
+    this._transactionsFormArray.push(
       this.fb.control({
         conditions: []
       })
@@ -22,17 +22,17 @@ export class AppComponent {
   }
 
   _delete(index: number) {
-    this._groupsFormArray.removeAt(index);
+    this._transactionsFormArray.removeAt(index);
   }
 
-  get _groupsFormArray(): FormArray {
-    return this._form.get("page").get("groups") as FormArray;
+  get _transactionsFormArray(): FormArray {
+    return this._form.get("page").get("transactions") as FormArray;
   }
 
   private _createForm() {
     this._form = this.fb.group({
       page: this.fb.group({
-        groups: this.fb.array([])
+        transactions: this.fb.array([])
       })
     });
   }

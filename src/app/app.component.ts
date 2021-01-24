@@ -13,7 +13,7 @@ export class AppComponent {
     this._createForm();
   }
 
-  _addGroup() {
+  _addTransaction() {
     this._transactionsFormArray.push(
       this.fb.control({
         conditions: []

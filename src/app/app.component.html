@@ -2,12 +2,12 @@
 	<section class="top-bar">
 		<span>Nested Groups</span>
 		<button type="button"
-            label="Add Statement"
+            label="Add Page"
             (click)="_addGroup()">add group</button>
 	</section>
 
 	<form [formGroup]="_form">
-		<ng-container formGroupName="statement">
+		<ng-container formGroupName="page">
 			<ng-container formArrayName="groups">
 				<ng-container *ngFor="let group of _groupsFormArray?.controls; index as i">
 					<app-group-control (remove)="_delete(i)"

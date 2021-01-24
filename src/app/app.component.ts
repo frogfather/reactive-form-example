@@ -16,11 +16,9 @@ export class AppComponent {
   _addGroup() {
     this._groupsFormArray.push(
       this.fb.control({
-        conditions: [],
-        groups: []
+        conditions: []
       })
     );
-    console.log(this._form);
   }
 
   _delete(index: number) {
@@ -28,12 +26,12 @@ export class AppComponent {
   }
 
   get _groupsFormArray(): FormArray {
-    return this._form.get("statement").get("groups") as FormArray;
+    return this._form.get("page").get("groups") as FormArray;
   }
 
   private _createForm() {
     this._form = this.fb.group({
-      statement: this.fb.group({
+      page: this.fb.group({
         groups: this.fb.array([])
       })
     });

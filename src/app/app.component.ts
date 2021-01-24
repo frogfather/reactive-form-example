@@ -16,7 +16,8 @@ export class AppComponent {
   _addTransaction() {
     console.log('add transaction in app component');
     this._transactionsFormArray.push(
-      this.fb.group({
+      this.fb.control({
+        test: [],
         head: [
           {
             head1: 'Head 1 test',

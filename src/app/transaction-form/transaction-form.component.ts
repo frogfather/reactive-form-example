@@ -19,6 +19,7 @@ import { TransactionBodyComponent, TransactionBodyComponentData } from "../trans
 import { TransactionHeadComponentData } from "../transaction-head/transaction-head.component";
 
 export interface TransactionFormComponentData {
+  test: string;
   head: TransactionHeadComponentData;
   body: TransactionBodyComponentData;
 }
@@ -94,6 +95,7 @@ export class TransactionFormComponent
   private _createFormGroup() {
     console.log('create form group trans component');
     this._form = this._fb.group({
+      test: [],
       head: [],
       body: []
     });

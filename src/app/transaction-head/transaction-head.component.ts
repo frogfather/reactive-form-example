@@ -45,14 +45,12 @@ export class TransactionHeadComponent implements ControlValueAccessor, OnDestroy
   constructor(private _fb: FormBuilder) { }
 
   ngOnInit(): void {
-    console.log('init head form');
     this._createFormGroup();
 
     this._setupObservables();
   }
 
   writeValue(value: any): void {
-    console.log('write head form');
     if (!value) {
       return;
     }
@@ -61,7 +59,6 @@ export class TransactionHeadComponent implements ControlValueAccessor, OnDestroy
   registerOnChange(
     fn: (v: TransactionHeadComponentData | null | undefined) => void
   ): void {
-    console.log('register on change head');
     this._onChange = fn;
   }
 
@@ -72,7 +69,6 @@ export class TransactionHeadComponent implements ControlValueAccessor, OnDestroy
     //
   }
   ngOnDestroy(): void {
-    console.log('on destroy head form');
     if (this._destroy$ && !this._destroy$.closed) {
       this._destroy$.next();
       this._destroy$.complete();
@@ -80,17 +76,13 @@ export class TransactionHeadComponent implements ControlValueAccessor, OnDestroy
   }
 
   private _createFormGroup() {
-    console.log('create form group head');
     this._headform = this._fb.group({
       head1: [],
       head2: []
     });
-    console.log('form group in head form component');
-    console.log(this._headform);
   }
 
   private _setupObservables() {
-    console.log('set up observables head');
     this._headform.valueChanges.pipe(takeUntil(this._destroy$)).subscribe(value => {
       if (this._onChange) {
         this._onChange(value);

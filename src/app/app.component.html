@@ -8,12 +8,12 @@
 
 	<form [formGroup]="_form">
 		<ng-container formGroupName="page">
-			<ng-container formArrayName="transactions">
-				<ng-container *ngFor="let transaction of _transactionsFormArray?.controls; index as i">
-					<app-group-control (remove)="_delete(i)"
+			<ng-container formArrayName="conditions">
+				<ng-container *ngFor="let condition of _conditionsFormArray?.controls; index as i">
+					<app-condition-form (remove)="_delete(i)"
                              [formControlName]="i"
-                             [formLabel]="'Transaction '+ (i + 1) + ':'">
-					</app-group-control>
+                             [formLabel]="'Condition '+ (i + 1) + ':'">
+					</app-condition-form>
 				</ng-container>
 			</ng-container>
 		</ng-container>

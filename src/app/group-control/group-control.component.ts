@@ -114,9 +114,6 @@ export class GroupControlComponent
     this._form = this._fb.group({
       conditions: this._fb.array([])
     });
-
-    // add one condition on the next tick, after the form creation
-    setTimeout(() => this._addCondition());
   }
 
   private _setupObservables() {

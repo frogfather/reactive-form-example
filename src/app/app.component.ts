@@ -14,25 +14,26 @@ export class AppComponent {
   }
 
   _addTransaction() {
-    this._transactionsFormArray.push(
+    this._conditionsFormArray.push(
       this.fb.control({
-        conditions: []
+        variable: 'test variable',
+        frogId: 'testFrog'
       })
     );
   }
 
   _delete(index: number) {
-    this._transactionsFormArray.removeAt(index);
+    this._conditionsFormArray.removeAt(index);
   }
 
-  get _transactionsFormArray(): FormArray {
-    return this._form.get("page").get("transactions") as FormArray;
+  get _conditionsFormArray(): FormArray {
+    return this._form.get("page").get("conditions") as FormArray;
   }
 
   private _createForm() {
     this._form = this.fb.group({
       page: this.fb.group({
-        transactions: this.fb.array([])
+        conditions: this.fb.array([])
       })
     });
   }

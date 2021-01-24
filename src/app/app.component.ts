@@ -13,8 +13,28 @@ export class AppComponent {
     this._createForm();
   }
 
+  // this.entryEditorForm = this.formBuilder.group({
+  //   entryHead: [
+  //     {
+  //     frogId: [],
+  //     flag: [],
+  //     date: [],
+  //     seller: []
+  //     }, []],
+  //   entryBody: [
+  //     {
+  //       ledgerId: [],
+  //       ledgerName: [],
+  //       note: [],
+  //       outflow: [],
+  //       inflow: []
+  //     }
+  //   ],
+  //   entrySubtransactions: this.formBuilder.array([])
+  // });
+
   _addTransaction() {
-    this._conditionsFormArray.push(
+    this._transactionsFormArray.push(
       this.fb.control({
         variable: 'test variable',
         frogId: 'testFrog'
@@ -24,17 +44,17 @@ export class AppComponent {
   }
 
   _delete(index: number) {
-    this._conditionsFormArray.removeAt(index);
+    this._transactionsFormArray.removeAt(index);
   }
 
-  get _conditionsFormArray(): FormArray {
-    return this._form.get("page").get("conditions") as FormArray;
+  get _transactionsFormArray(): FormArray {
+    return this._form.get("page").get("transactions") as FormArray;
   }
 
   private _createForm() {
     this._form = this.fb.group({
       page: this.fb.group({
-        conditions: this.fb.array([])
+        transactions: this.fb.array([])
       })
     });
   }

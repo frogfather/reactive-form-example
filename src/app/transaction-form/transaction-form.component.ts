@@ -15,10 +15,12 @@ import {
 } from "@angular/forms";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
+import { TransactionBodyComponent, TransactionBodyComponentData } from "../transaction-body/transaction-body.component";
+import { TransactionHeadComponentData } from "../transaction-head/transaction-head.component";
 
 export interface TransactionFormComponentData {
-  variable: any;
-  frogId: string;
+  head: TransactionHeadComponentData;
+  body: TransactionBodyComponentData;
 }
 
 @Component({
@@ -65,10 +67,11 @@ export class TransactionFormComponent
   }
 
   writeValue(value: TransactionFormComponentData): void {
+    console.log('write trans form');
+    console.log(value);
     if (!value) {
       return;
     }
-
     this._form.patchValue(value);
   }
   registerOnChange(
@@ -89,8 +92,17 @@ export class TransactionFormComponent
 
   private _createFormGroup() {
     this._form = this._fb.group({
-      variable: null,
-      frogId: 'test'
+      head: [
+        {
+        head1: [],
+        head2: []
+        }, []],
+      body: [
+        {
+          body1: [],
+          body2: []
+        }
+      ]
     });
   }
 

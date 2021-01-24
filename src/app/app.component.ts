@@ -35,9 +35,16 @@ export class AppComponent {
 
   _addTransaction() {
     this._transactionsFormArray.push(
-      this.fb.control({
-        variable: 'test variable',
-        frogId: 'testFrog'
+      this.fb.group({
+        head: this.fb.control({
+          head1: 'Head 1 test',
+          head2: 'Head 2 test'
+        }),
+        body: this.fb.control({
+          body1: 'Body 1 test',
+          body2: 'Body 2 test'
+        })
+        
       })
     );
     console.log(this._form);

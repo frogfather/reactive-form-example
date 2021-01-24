@@ -42,8 +42,6 @@ export class TransactionHeadComponent implements ControlValueAccessor, OnDestroy
 
   private _destroy$: Subject<void> = new Subject<void>();
 
-
-
   constructor(private _fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -52,26 +50,37 @@ export class TransactionHeadComponent implements ControlValueAccessor, OnDestroy
     this._setupObservables();
   }
 
-  writeValue(obj: any): void {
-    throw new Error("Method not implemented.");
+  writeValue(value: any): void {
+    console.log('write head form');
+    console.log(value);
+    if (!value) {
+      return;
+    }
+    this._headform.patchValue(value);
   }
-  registerOnChange(fn: any): void {
-    throw new Error("Method not implemented.");
+  registerOnChange(
+    fn: (v: TransactionHeadComponentData | null | undefined) => void
+  ): void {
+    this._onChange = fn;
   }
+
   registerOnTouched(fn: any): void {
-    throw new Error("Method not implemented.");
+    //
   }
   setDisabledState?(isDisabled: boolean): void {
-    throw new Error("Method not implemented.");
+    //
   }
   ngOnDestroy(): void {
-    throw new Error("Method not implemented.");
+    if (this._destroy$ && !this._destroy$.closed) {
+      this._destroy$.next();
+      this._destroy$.complete();
+    }
   }
 
   private _createFormGroup() {
     this._headform = this._fb.group({
-      variable: null,
-      frogId: 'test'
+      head1: '',
+      head2: ''
     });
   }
 

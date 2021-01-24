@@ -20,6 +20,7 @@ export class AppComponent {
         frogId: 'testFrog'
       })
     );
+    console.log(this._form);
   }
 
   _delete(index: number) {

@@ -101,14 +101,7 @@ export class GroupControlComponent
     this._groupsFormArray.removeAt(index);
   }
 
-  _addGroup() {
-    this._groupsFormArray.push(
-      this._fb.control({
-        conditions: []
-      })
-    );
-  }
-
+  
   get _conditionsFormArray(): FormArray {
     return this._form.get("conditions") as FormArray;
   }

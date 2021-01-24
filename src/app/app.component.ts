@@ -16,7 +16,6 @@ export class AppComponent {
   _addGroup() {
     this._groupsFormArray.push(
       this.fb.control({
-        conjunctor: null,
         conditions: [],
         groups: []
       })

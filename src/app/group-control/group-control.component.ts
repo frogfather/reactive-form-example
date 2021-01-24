@@ -19,7 +19,6 @@ import { takeUntil } from "rxjs/operators";
 import { ConditionFormComponentData } from "../condition-form/condition-form.component";
 
 export interface GroupControlComponentData {
-  conjunctor: null;
   conditions: ConditionFormComponentData[];
   groups: GroupControlComponentData[];
 }
@@ -106,7 +105,6 @@ export class GroupControlComponent
   _addGroup() {
     this._groupsFormArray.push(
       this._fb.control({
-        conjunctor: null,
         conditions: [],
         groups: []
       })
@@ -123,7 +121,6 @@ export class GroupControlComponent
 
   private _createFormGroup() {
     this._form = this._fb.group({
-      conjunctor: null,
       conditions: this._fb.array([]),
       groups: this._fb.array([])
     });

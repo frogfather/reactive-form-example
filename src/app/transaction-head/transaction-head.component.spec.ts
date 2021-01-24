@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConditionFormComponent } from './condition-form.component';
+import { TransactionHeadComponent } from './transaction-head.component';
 
-describe('ConditionFormComponent', () => {
-  let component: ConditionFormComponent;
-  let fixture: ComponentFixture<ConditionFormComponent>;
+describe('TransactionHeadComponent', () => {
+  let component: TransactionHeadComponent;
+  let fixture: ComponentFixture<TransactionHeadComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConditionFormComponent ]
+      declarations: [ TransactionHeadComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConditionFormComponent);
+    fixture = TestBed.createComponent(TransactionHeadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

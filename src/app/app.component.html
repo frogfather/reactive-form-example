@@ -2,18 +2,18 @@
 	<section class="top-bar">
 		<span>Nested Groups</span>
 		<button type="button"
-            label="Add Statement"
-            (click)="_addGroup()">add group</button>
+            label="Add Page"
+            (click)="_addTransaction()">add transaction</button>
 	</section>
 
 	<form [formGroup]="_form">
-		<ng-container formGroupName="statement">
-			<ng-container formArrayName="groups">
-				<ng-container *ngFor="let group of _groupsFormArray?.controls; index as i">
-					<app-group-control (remove)="_delete(i)"
+		<ng-container formGroupName="page">
+			<ng-container formArrayName="transactions">
+				<ng-container *ngFor="let transaction of _transactionsFormArray?.controls; index as i">
+					<app-transaction-form (remove)="_delete(i)"
                              [formControlName]="i"
-                             [formLabel]="'Group '+ (i + 1) + ':'">
-					</app-group-control>
+                             [formLabel]="'Transaction '+ (i + 1) + ':'">
+					</app-transaction-form>
 				</ng-container>
 			</ng-container>
 		</ng-container>

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GroupControlComponent } from './group-control.component';
+import { TransactionBodyComponent } from './transaction-body.component';
 
-describe('GroupControlComponent', () => {
-  let component: GroupControlComponent;
-  let fixture: ComponentFixture<GroupControlComponent>;
+describe('TransactionBodyComponent', () => {
+  let component: TransactionBodyComponent;
+  let fixture: ComponentFixture<TransactionBodyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GroupControlComponent ]
+      declarations: [ TransactionBodyComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GroupControlComponent);
+    fixture = TestBed.createComponent(TransactionBodyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

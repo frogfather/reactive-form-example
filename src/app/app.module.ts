@@ -4,14 +4,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-import { GroupControlComponent } from './group-control/group-control.component';
-import { ConditionFormComponent } from './condition-form/condition-form.component';
+import { TransactionFormComponent } from './transaction-form/transaction-form.component';
 import { ActionButtonsBarComponent } from './action-buttons-bar/action-buttons-bar.component';
+import { TransactionHeadComponent } from './transaction-head/transaction-head.component';
+import { TransactionBodyComponent } from './transaction-body/transaction-body.component';
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule],
-  declarations: [ AppComponent, HelloComponent, GroupControlComponent, ConditionFormComponent, ActionButtonsBarComponent],
+  declarations: [ AppComponent, HelloComponent, TransactionFormComponent, ActionButtonsBarComponent, TransactionHeadComponent, TransactionBodyComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

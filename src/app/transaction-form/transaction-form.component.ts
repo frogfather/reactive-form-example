@@ -15,27 +15,30 @@ import {
 } from "@angular/forms";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
+import { TransactionBodyComponent, TransactionBodyComponentData } from "../transaction-body/transaction-body.component";
+import { TransactionHeadComponentData } from "../transaction-head/transaction-head.component";
 
-export interface ConditionFormComponentData {
-  variable: any;
+export interface TransactionFormComponentData {
+  head: TransactionHeadComponentData;
+  body: TransactionBodyComponentData;
 }
 
 @Component({
-  selector: "app-condition-form",
-  templateUrl: "./condition-form.component.html",
-  styleUrls: ["./condition-form.component.css"],
+  selector: "app-transaction-form",
+  templateUrl: "./transaction-form.component.html",
+  styleUrls: ["./transaction-form.component.css"],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => ConditionFormComponent),
+      useExisting: forwardRef(() => TransactionFormComponent),
       multi: true
     }
   ]
 })
-export class ConditionFormComponent
+export class TransactionFormComponent
   implements ControlValueAccessor, OnDestroy, OnInit {
   @Input()
-  formLabel: string | number = "Condition";
+  formLabel: string | number = "Transaction";
 
   @Output()
   remove: EventEmitter<void> = new EventEmitter<void>();
@@ -43,7 +46,7 @@ export class ConditionFormComponent
   _form: FormGroup;
 
   private _onChange: (
-    value: ConditionFormComponentData | null | undefined
+    value: TransactionFormComponentData | null | undefined
   ) => void;
 
   private _destroy$: Subject<void> = new Subject<void>();
@@ -52,7 +55,6 @@ export class ConditionFormComponent
 
   ngOnInit() {
     this._createFormGroup();
-
     this._setupObservables();
   }
 
@@ -63,15 +65,14 @@ export class ConditionFormComponent
     }
   }
 
-  writeValue(value: ConditionFormComponentData): void {
+  writeValue(value: TransactionFormComponentData): void {
     if (!value) {
       return;
     }
-
     this._form.patchValue(value);
   }
   registerOnChange(
-    fn: (v: ConditionFormComponentData | null | undefined) => void
+    fn: (v: TransactionFormComponentData | null | undefined) => void
   ): void {
     this._onChange = fn;
   }
@@ -88,7 +89,8 @@ export class ConditionFormComponent
 
   private _createFormGroup() {
     this._form = this._fb.group({
-      variable: null
+      head: [],
+      body: []
     });
   }
 

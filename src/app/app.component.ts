@@ -13,28 +13,36 @@ export class AppComponent {
     this._createForm();
   }
 
-  _addGroup() {
-    this._groupsFormArray.push(
+  _addTransaction() {
+    this._transactionsFormArray.push(
       this.fb.control({
-        conjunctor: null,
-        conditions: [],
-        groups: []
+        head: 
+          {
+            head1: 'Head 1 value',
+            head2: 'Head 2 value'
+          },
+        body: 
+          {
+            body1: 'Body 1 value',
+            body2: 'Body 2 value'
+          }
       })
     );
   }
 
   _delete(index: number) {
-    this._groupsFormArray.removeAt(index);
+    this._transactionsFormArray.removeAt(index);
   }
 
-  get _groupsFormArray(): FormArray {
-    return this._form.get("statement").get("groups") as FormArray;
+  get _transactionsFormArray(): FormArray {
+    return this._form.get("page").get("transactions") as FormArray;
   }
+
 
   private _createForm() {
     this._form = this.fb.group({
-      statement: this.fb.group({
-        groups: this.fb.array([])
+      page: this.fb.group({
+        transactions: this.fb.array([])
       })
     });
   }

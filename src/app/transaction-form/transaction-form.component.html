@@ -1,0 +1,14 @@
+<form [formGroup]="_form">
+	<fieldset>
+		<legend>{{formLabel}}</legend>
+		<div>
+			<app-transaction-head formControlName="head">
+			</app-transaction-head>
+			<app-transaction-body formControlName="body">
+			</app-transaction-body>
+			<button type="button" (click)="remove.emit()">
+        delete transaction
+      </button>
+		</div>
+	</fieldset>
+</form>

@@ -19,7 +19,6 @@ import { TransactionBodyComponent, TransactionBodyComponentData } from "../trans
 import { TransactionHeadComponentData } from "../transaction-head/transaction-head.component";
 
 export interface TransactionFormComponentData {
-  test: string;
   head: TransactionHeadComponentData;
   body: TransactionBodyComponentData;
 }
@@ -55,9 +54,7 @@ export class TransactionFormComponent
   constructor(private _fb: FormBuilder) {}
 
   ngOnInit() {
-    console.log('on init trans form');
     this._createFormGroup();
-
     this._setupObservables();
   }
 
@@ -69,7 +66,6 @@ export class TransactionFormComponent
   }
 
   writeValue(value: TransactionFormComponentData): void {
-    console.log('write trans form');
     if (!value) {
       return;
     }
@@ -78,7 +74,6 @@ export class TransactionFormComponent
   registerOnChange(
     fn: (v: TransactionFormComponentData | null | undefined) => void
   ): void {
-    console.log('register on change trans form');
     this._onChange = fn;
   }
 
@@ -93,18 +88,13 @@ export class TransactionFormComponent
   }
 
   private _createFormGroup() {
-    console.log('create form group trans component');
     this._form = this._fb.group({
-      test: [],
       head: [],
       body: []
     });
-    console.log('form group in trans form component');
-    console.log(this._form);
   }
 
   private _setupObservables() {
-    console.log('setup observables trans component');
     this._form.valueChanges.pipe(takeUntil(this._destroy$)).subscribe(value => {
       if (this._onChange) {
         this._onChange(value);

@@ -14,24 +14,20 @@ export class AppComponent {
   }
 
   _addTransaction() {
-    console.log('add transaction in app component');
     this._transactionsFormArray.push(
       this.fb.control({
-        test: [],
-        head: [
+        head: 
           {
-            head1: 'Head 1 test',
-            head2: 'Head 2 test'
-          }, []],
-        body: [
+            head1: 'Head 1 value',
+            head2: 'Head 2 value'
+          },
+        body: 
           {
-            body1: 'Body 1 test',
-            body2: 'Body 2 test'
-          }, []]
+            body1: 'Body 1 value',
+            body2: 'Body 2 value'
+          }
       })
     );
-    console.log('form in app component');
-    console.log(this._form);
   }
 
   _delete(index: number) {
@@ -41,6 +37,7 @@ export class AppComponent {
   get _transactionsFormArray(): FormArray {
     return this._form.get("page").get("transactions") as FormArray;
   }
+
 
   private _createForm() {
     console.log('create form group app component');

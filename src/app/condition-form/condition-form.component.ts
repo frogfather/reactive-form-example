@@ -18,6 +18,7 @@ import { takeUntil } from "rxjs/operators";
 
 export interface ConditionFormComponentData {
   variable: any;
+  frogId: string;
 }
 
 @Component({
@@ -88,7 +89,8 @@ export class ConditionFormComponent
 
   private _createFormGroup() {
     this._form = this._fb.group({
-      variable: null
+      variable: null,
+      frogId: 'test'
     });
   }
 

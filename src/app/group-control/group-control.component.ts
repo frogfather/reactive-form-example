@@ -94,7 +94,7 @@ export class GroupControlComponent
   }
 
   _addCondition() {
-    this._conditionsFormArray.push(this._fb.control({ variable: null }));
+    this._conditionsFormArray.push(this._fb.control({ variable: null, frogId: 'test2' }));
   }
 
   _deleteGroupFromArray(index: number) {

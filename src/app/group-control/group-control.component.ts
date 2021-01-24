@@ -19,8 +19,7 @@ import { takeUntil } from "rxjs/operators";
 import { ConditionFormComponentData } from "../condition-form/condition-form.component";
 
 export interface GroupControlComponentData {
-  conditions: ConditionFormComponentData[];
-  groups: GroupControlComponentData[];
+  conditions: ConditionFormComponentData[]; 
 }
 
 @Component({
@@ -105,8 +104,7 @@ export class GroupControlComponent
   _addGroup() {
     this._groupsFormArray.push(
       this._fb.control({
-        conditions: [],
-        groups: []
+        conditions: []
       })
     );
   }
@@ -121,8 +119,7 @@ export class GroupControlComponent
 
   private _createFormGroup() {
     this._form = this._fb.group({
-      conditions: this._fb.array([]),
-      groups: this._fb.array([])
+      conditions: this._fb.array([])
     });
 
     // add one condition on the next tick, after the form creation

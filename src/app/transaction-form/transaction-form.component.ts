@@ -68,7 +68,7 @@ export class TransactionFormComponent
 
   writeValue(value: TransactionFormComponentData): void {
     console.log('write trans form');
-    console.log(value);
+    console.log(this._form);
     if (!value) {
       return;
     }

@@ -52,7 +52,7 @@ export class TransactionHeadComponent implements ControlValueAccessor, OnDestroy
 
   writeValue(value: any): void {
     console.log('write head form');
-    console.log(value);
+    console.log(this._headform);
     if (!value) {
       return;
     }
@@ -61,6 +61,7 @@ export class TransactionHeadComponent implements ControlValueAccessor, OnDestroy
   registerOnChange(
     fn: (v: TransactionHeadComponentData | null | undefined) => void
   ): void {
+    console.log('register on change in head');
     this._onChange = fn;
   }
 
@@ -79,8 +80,8 @@ export class TransactionHeadComponent implements ControlValueAccessor, OnDestroy
 
   private _createFormGroup() {
     this._headform = this._fb.group({
-      head1: '',
-      head2: ''
+      head1: [],
+      head2: []
     });
   }
 

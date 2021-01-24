@@ -13,40 +13,23 @@ export class AppComponent {
     this._createForm();
   }
 
-  // this.entryEditorForm = this.formBuilder.group({
-  //   entryHead: [
-  //     {
-  //     frogId: [],
-  //     flag: [],
-  //     date: [],
-  //     seller: []
-  //     }, []],
-  //   entryBody: [
-  //     {
-  //       ledgerId: [],
-  //       ledgerName: [],
-  //       note: [],
-  //       outflow: [],
-  //       inflow: []
-  //     }
-  //   ],
-  //   entrySubtransactions: this.formBuilder.array([])
-  // });
-
   _addTransaction() {
     this._transactionsFormArray.push(
       this.fb.group({
-        head: this.fb.control({
-          head1: 'Head 1 test',
-          head2: 'Head 2 test'
-        }),
-        body: this.fb.control({
-          body1: 'Body 1 test',
-          body2: 'Body 2 test'
-        })
-        
+        head: [
+          {
+            head1: 'Head 1 test',
+            head2: 'Head 2 test'
+          }, []],
+        body: [
+          {
+            body1: 'Body 1 test',
+            body2: 'Body 2 test'
+          }
+        ]
       })
     );
+    console.log('containing form');
     console.log(this._form);
   }
 

@@ -52,7 +52,7 @@ export class TransactionBodyComponent implements ControlValueAccessor, OnDestroy
 
   writeValue(value: any): void {
     console.log('write body form');
-    console.log(value);
+    console.log(this._bodyform);
     if (!value) {
       return;
     }
@@ -61,6 +61,7 @@ export class TransactionBodyComponent implements ControlValueAccessor, OnDestroy
   registerOnChange(
     fn: (v: TransactionBodyComponentData | null | undefined) => void
   ): void {
+    console.log('register on change in body');
     this._onChange = fn;
   }
 
@@ -79,8 +80,8 @@ export class TransactionBodyComponent implements ControlValueAccessor, OnDestroy
 
   private _createFormGroup() {
     this._bodyform = this._fb.group({
-      body1: '',
-      body2: ''
+      body1: [],
+      body2: []
     });
   }
 

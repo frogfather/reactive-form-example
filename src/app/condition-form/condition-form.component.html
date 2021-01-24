@@ -1,0 +1,13 @@
+<form [formGroup]="_form">
+	<fieldset>
+		<legend>{{formLabel}}</legend>
+		<div>
+			<input type="text"
+             formControlName="variable">
+
+			<button type="button" (click)="remove.emit()">
+        delete condition
+      </button>
+		</div>
+	</fieldset>
+</form>

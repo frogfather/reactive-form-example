@@ -14,6 +14,7 @@ export class AppComponent {
   }
 
   _addTransaction() {
+    console.log('add transaction in app component');
     this._transactionsFormArray.push(
       this.fb.group({
         head: [
@@ -25,12 +26,9 @@ export class AppComponent {
           {
             body1: 'Body 1 test',
             body2: 'Body 2 test'
-          }
-        ]
+          }, []]
       })
     );
-    console.log('containing form');
-    console.log(this._form);
   }
 
   _delete(index: number) {

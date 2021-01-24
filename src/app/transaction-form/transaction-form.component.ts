@@ -54,6 +54,7 @@ export class TransactionFormComponent
   constructor(private _fb: FormBuilder) {}
 
   ngOnInit() {
+    console.log('on init trans form');
     this._createFormGroup();
 
     this._setupObservables();
@@ -68,7 +69,6 @@ export class TransactionFormComponent
 
   writeValue(value: TransactionFormComponentData): void {
     console.log('write trans form');
-    console.log(this._form);
     if (!value) {
       return;
     }

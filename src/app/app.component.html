@@ -10,10 +10,10 @@
 		<ng-container formGroupName="page">
 			<ng-container formArrayName="transactions">
 				<ng-container *ngFor="let transaction of _transactionsFormArray?.controls; index as i">
-					<app-condition-form (remove)="_delete(i)"
+					<app-transaction-form (remove)="_delete(i)"
                              [formControlName]="i"
                              [formLabel]="'Transaction '+ (i + 1) + ':'">
-					</app-condition-form>
+					</app-transaction-form>
 				</ng-container>
 			</ng-container>
 		</ng-container>

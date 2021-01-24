@@ -85,6 +85,8 @@ export class TransactionHeadComponent implements ControlValueAccessor, OnDestroy
       head1: [],
       head2: []
     });
+    console.log('form group in head form component');
+    console.log(this._headform);
   }
 
   private _setupObservables() {

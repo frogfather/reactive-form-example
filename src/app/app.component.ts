@@ -29,6 +29,8 @@ export class AppComponent {
           }, []]
       })
     );
+    console.log('form in app component');
+    console.log(this._form);
   }
 
   _delete(index: number) {
@@ -40,6 +42,7 @@ export class AppComponent {
   }
 
   private _createForm() {
+    console.log('create form group app component');
     this._form = this.fb.group({
       page: this.fb.group({
         transactions: this.fb.array([])
